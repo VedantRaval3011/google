@@ -11,6 +11,7 @@ export default function Search() {
   const router = useRouter();
   const handleSubmit = (e) => {
     e.preventDefault();
+    router.push(`/search/web?searchTerm=${input}`);
     if (!input.trim()) return;
   };
 
@@ -20,6 +21,7 @@ export default function Search() {
       .then((res) => res.json())
       .then((data) => data[0]);
     if (!response) return;
+    router.push(`/search/web?searchTerm=${response}`);
     setRandomSearchLoading(false);
   };
   return (
